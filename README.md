@@ -1,21 +1,21 @@
 ### 깃허브 협업 설정 과정
 
-0. 3d 게임 프로젝트를 유니티에서 생성
-1. GameProject라는 원격 레포지토리 생성
-2. $ C:/Users/ippun/GameProject 폴더로 이동
-3. $ git init
-4. $ git remote add origin https://github.com/yumni-song/game-project
-4.5. Unity 에디터 설정Edit > Project Settings > Editor
+00. 3d 게임 프로젝트(GameProject)를 유니티에서 생성
+01. game-project라는 원격 레포지토리 생성
+02. $ C:/Users/ippun/GameProject 폴더로 이동
+03. $ git init
+04. $ git remote add origin https://github.com/yumni-song/game-project
+05. Unity 에디터 설정Edit > Project Settings > Editor
      Version Control: Visible Meta Files
      Asset Serialization: Force Text
      메타(.meta) 파일 생성 + 씬/프리팹을 YAML 텍스트로 저장해 병합 가능하게 함.
-5. $ git lfs install
-6. $ git lfs track "*.fbx" "*.psd" "*.wav" "*.mp3" "*.mp4" "*.tga" "*.exr" "*.zip"
-7. .gitignore, .gitattributes 파일 만들기
-8. $ git add .
-9. $ git commit -m "init: base Unity project setup"
-10. $ git branch -M main
-11. $ git push -u origin main
+06. $ git lfs install
+07. $ git lfs track "*.fbx" "*.psd" "*.wav" "*.mp3" "*.mp4" "*.tga" "*.exr" "*.zip"
+08. .gitignore, .gitattributes 파일 만들기
+09. $ git add .
+10. $ git commit -m "init: base Unity project setup"
+11. $ git branch -M main
+12. $ git push -u origin main
 
 ### 프로젝트 받기
 ```bash
