@@ -47,6 +47,7 @@ git branch -d feature/<작업이름>
 git push origin --delete feature/<작업이름>
 ```
 
+### .gitignore
 ```gitignore
 # === Unity 기본 무시 목록 ===
 [Ll]ibrary/
@@ -97,6 +98,7 @@ Builds/
 !Packages/
 ```
 
+### gitattributes
 ```gitattributes
 # Unity Large Binary Assets
 *.psd filter=lfs diff=lfs merge=lfs -text
