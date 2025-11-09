@@ -1,0 +1,47 @@
+# === Unity 기본 무시 목록 ===
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+[Oo]bj/
+[Bb]in/
+[.]*.swp
+
+# === IDE 관련 ===
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+
+# === OS 관련 ===
+.DS_Store
+Thumbs.db
+
+# === Crash Dumps ===
+sysinfo.txt
+
+# === Rider / Visual Studio Cache ===
+*.pidb
+*.booproj
+
+# === Package Cache ===
+Packages/com.unity.collab-proxy/
+Packages/com.unity.package-manager-ui/
+
+# === 빌드 결과물 ===
+Build/
+Builds/
+
+# === 반드시 추적해야 하는 폴더 ===
+!Assets/
+!ProjectSettings/
+!Packages/
