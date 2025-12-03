@@ -45,3 +45,5 @@ Builds/
 !Assets/
 !ProjectSettings/
 !Packages/
+
+.vs/
