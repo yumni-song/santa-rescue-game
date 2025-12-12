@@ -39,6 +39,13 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log($"Player HP: {currentHP}/{maxHP}");
         // TODO: 여기서 피격 이펙트, 깜빡임, 사운드 등 넣어도 됨
+
+        // UI 깜빡임 효과
+        PlayerHealthUI ui = FindFirstObjectByType<PlayerHealthUI>();
+        if (ui != null)
+        {
+            ui.FlashHearts();
+        }
     }
 
     public void Heal(int amount)
