@@ -17,7 +17,7 @@ public class TutorialNavigator : MonoBehaviour
 
         if (currentScene == "Tutorial_4" && !isLeftButton)
         {
-            SceneManager.LoadScene("InGameScene2");
+            SceneManager.LoadScene("InGameScene1");
             return;
         }
 
