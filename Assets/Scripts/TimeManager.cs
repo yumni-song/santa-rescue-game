@@ -31,6 +31,9 @@ public class TimerManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        if (timerCanvas != null)
+            DontDestroyOnLoad(timerCanvas.gameObject);
+
         // 씬 로드 이벤트 등록
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -63,7 +66,7 @@ public class TimerManager : MonoBehaviour
             isRunning = false;
 
             // 시간 다 되면 게임오버 씬으로
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("BadEnd");
         }
 
         UpdateTimerUI();
@@ -82,26 +85,22 @@ public class TimerManager : MonoBehaviour
     // 씬이 로드될 때마다 호출
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 1) 게임오버 씬이면 타이머 통째로 삭제
         if (scene.name == "StartScene")
         {
-            Destroy(gameObject);  // 타이머 + UI 모두 제거
+            if (timerCanvas != null) Destroy(timerCanvas.gameObject);
+            Destroy(gameObject);
             return;
         }
 
-        // 2) 타이머를 보여줄 씬인지 체크 (게임씬만 true)
-        bool isGameScene =
-            scene.name == "InGameScene1" ||
-            scene.name == "InGameScene2";
+        bool isGameScene = scene.name == "InGameScene1" || scene.name == "InGameScene2";
 
-        // 게임씬에서만 캔버스를 켜기
         if (timerCanvas != null)
             timerCanvas.gameObject.SetActive(isGameScene);
 
-        // 게임씬이 아닐 땐 타이머 멈춰도 되고 (선택)
-        if (!isGameScene)
-            isRunning = false;
+        //  게임씬이면 계속 흐르게 (이어지는 타이머 목적)
+        isRunning = isGameScene;
     }
+
 
     // 필요 시 외부에서 쓸 수 있는 함수들
     public void StopTimer() => isRunning = false;
