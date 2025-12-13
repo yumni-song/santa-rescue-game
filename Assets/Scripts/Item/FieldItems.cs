@@ -24,6 +24,7 @@ public class FieldItems : MonoBehaviour
         item.itemIcon = _item.itemIcon;
         item.itemModel = _item.itemModel;
         item.itemType = _item.itemType;
+        item.efts = _item.efts;
 
         spawnedModel = Instantiate(item.itemModel, transform);
         spawnedModel.transform.localPosition = Vector3.zero;

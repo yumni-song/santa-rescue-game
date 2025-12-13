@@ -18,8 +18,16 @@ public class Item
     public Sprite itemIcon;
     public GameObject itemModel;
 
+    public List<ItemEffect> efts;
+
     public bool Use()
     {
-        return false;
+        bool isUsed = false;
+        foreach(ItemEffect eft in efts)
+        {
+            isUsed = eft.ExecuteRole();
+        }
+
+        return isUsed;
     }
 }
