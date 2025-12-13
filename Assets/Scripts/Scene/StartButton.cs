@@ -5,6 +5,6 @@ public class StartButton : MonoBehaviour
 {
     public void OnClickStart()
     {
-        SceneManager.LoadScene("InGameScene2"); // 실제 게임 씬 이름 넣기
+        SceneManager.LoadScene("InGameScene1"); // 실제 게임 씬 이름 넣기
     }
 }
