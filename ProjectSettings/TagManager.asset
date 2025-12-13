@@ -11,11 +11,12 @@ TagManager:
   - TransparentFX
   - Ignore Raycast
   - Water
+  - Water
   - UI
-  - Player
   - Interactable
   - SantaFollower
-  - 
+  - Enemy
+  - EnemyProjectile
   - 
   - 
   - 
