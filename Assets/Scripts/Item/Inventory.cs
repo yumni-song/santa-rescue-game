@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
@@ -37,10 +36,27 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    // items에 접근할 수 있는 public 메서드 추가
+    // items에 접근할 수 있는 public 메서드
     public List<Item> GetItems()
     {
         return items;
+    }
+
+    // 아이템 제거 메서드
+    public void RemoveItem(int _index)
+    {
+        if (_index >= 0 && _index < items.Count)
+        {
+            Debug.Log($"아이템 제거: {items[_index].itemName}");
+            items.RemoveAt(_index);
+
+            if (onChangeItem != null)
+                onChangeItem.Invoke();
+        }
+        else
+        {
+            Debug.LogError($"잘못된 인덱스: {_index}");
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
