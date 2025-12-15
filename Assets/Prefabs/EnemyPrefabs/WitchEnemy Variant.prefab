@@ -505,9 +505,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   touchDamage: 0
-  attackDamage: 3
+  attackDamage: 2
   deathEffectPrefab: {fileID: 5985634496115995773, guid: ac1b1517c0db9ec49a29ce2ff40a50da, type: 3}
   deathEffectDuration: 2
+  deathEffectHeightOffset: 1.5
   deathSound: {fileID: 0}
   deathSoundVolume: 0.7
   shieldStopBuffer: 1

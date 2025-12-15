@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f720c691ef358fc4ca5fc81111c0d523, type: 3}
   m_Name: KeyEft
   m_EditorClassIdentifier: 
-  useDistance: 5
+  useDistance: 15
   maxAngle: 45
   raycastDistance: 10
   unlockEffectPrefab: {fileID: 1917998075573195028, guid: 6878fc344b6627941a8e23b40a8d6f54, type: 3}

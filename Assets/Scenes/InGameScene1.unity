@@ -1796,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8723725311287390849, guid: 5bfbeb3e41f52724babbcf1b13882281, type: 3}
       propertyPath: fixedSpawns.Array.data[2].positionIndex
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
