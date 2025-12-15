@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5867370187955328694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418761563012656682}
+  - component: {fileID: 8723725311287390849}
+  m_Layer: 0
+  m_Name: ItemDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418761563012656682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5867370187955328694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.8223267, y: 0, z: 7.423523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8723725311287390849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5867370187955328694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fb91147c52ea249919c43d682066df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDB:
+  - itemType: 0
+    itemName: "\uC5F4\uC1E0"
+    itemIcon: {fileID: 21300000, guid: 2e4dc77b15686094c904a03edff8f2d8, type: 3}
+    itemModel: {fileID: 4904201098223554599, guid: d8452f66a0985454295920a87b83af64, type: 3}
+    efts:
+    - {fileID: 11400000, guid: b8ebd9df9703d1948ace1e4e96345093, type: 2}
+  - itemType: 1
+    itemName: "\uC120\uBB3C"
+    itemIcon: {fileID: 21300000, guid: d907317beae22c342a799dcb0b839e8b, type: 3}
+    itemModel: {fileID: 5711346739794886412, guid: 025285af263241f4ab2199d1411ce3c7, type: 3}
+    efts: []
+  - itemType: 2
+    itemName: "\uD3ED\uD0C4"
+    itemIcon: {fileID: 21300000, guid: e8b9dbf22a38fbc48947152f1656a181, type: 3}
+    itemModel: {fileID: 5969775749447481472, guid: 3b97111e620d06d49a7d550e33056520, type: 3}
+    efts:
+    - {fileID: 11400000, guid: 4cc8d96439f8dc04f93669ae0e10a3da, type: 2}
+  - itemType: 3
+    itemName: "\uC2ED\uC790\uAC00"
+    itemIcon: {fileID: 21300000, guid: c459a93be663f1945b8b287a4f7d8f35, type: 3}
+    itemModel: {fileID: 5817479682486032561, guid: c0dd9217b2b441e44a30f97471a000f4, type: 3}
+    efts:
+    - {fileID: 11400000, guid: aae307d1254cad94ca851c99c391657b, type: 2}
+  fieldItemPrefab: {fileID: 459664542440901097, guid: 8420bd82e286f54449e33d437495b32b, type: 3}
+  pos:
+  - {x: 0, y: 0, z: -5}
+  - {x: 3, y: 0, z: -5}
+  - {x: 6, y: 0, z: -5}
+  - {x: -3, y: 0, z: -5}
+  - {x: -6, y: 0, z: -5}
+  - {x: -9, y: 0, z: -5}
+  randomItemMinIndex: 1
+  randomItemMaxIndex: 4
+  randomSpecialItemIndex: 0
+  spawnRandomSpecialItem: 1
+  fixedSpawns:
+  - positionIndex: 0
+    itemIndex: 0
+  - positionIndex: 1
+    itemIndex: 1

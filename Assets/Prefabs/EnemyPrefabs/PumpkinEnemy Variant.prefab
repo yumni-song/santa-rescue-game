@@ -153,6 +153,12 @@ MonoBehaviour:
   maxHP: 2
   touchDamage: 1
   attackDamage: 1
+  deathEffectPrefab: {fileID: 5985634496115995773, guid: ac1b1517c0db9ec49a29ce2ff40a50da, type: 3}
+  deathEffectDuration: 2
+  deathSound: {fileID: 0}
+  deathSoundVolume: 0.7
+  shieldStopBuffer: 1
+  repelCooldown: 0.5
 --- !u!114 &5048466757984908380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +174,12 @@ MonoBehaviour:
   maxHP: 2
   touchDamage: 1
   attackDamage: 1
+  deathEffectPrefab: {fileID: 5985634496115995773, guid: ac1b1517c0db9ec49a29ce2ff40a50da, type: 3}
+  deathEffectDuration: 2
+  deathSound: {fileID: 0}
+  deathSoundVolume: 0.7
+  shieldStopBuffer: 1
+  repelCooldown: 0.5
   moveSpeed: 3
   aggroRange: 8
   loseAggroRange: 12

@@ -27,8 +27,11 @@ public class NormalEnemy : EnemyBase
             isAggro = false;
         }
 
-        // 어그로 상태일 때만 플레이어 추격
-        if (isAggro)
+        // 보호막 상태 업데이트 (부모 클래스 메서드)
+        UpdateShieldStatus();
+
+        // 어그로 상태이고 이동 가능할 때만 추격
+        if (isAggro && CanMove())
         {
             ChasePlayer(dist);
         }
@@ -61,6 +64,12 @@ public class NormalEnemy : EnemyBase
 
         if (other.CompareTag("Player"))
         {
+            // 보호막 체크 (부모 클래스 메서드)
+            if (!CanDamagePlayer())
+            {
+                return;  // 보호막 활성화 중이면 데미지 없음
+            }
+
             //Debug.Log("Player 감지! 데미지 시도");
 
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();

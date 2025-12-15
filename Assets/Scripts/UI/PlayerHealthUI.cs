@@ -6,23 +6,19 @@ using UnityEngine.UI;
 public class PlayerHealthUI : MonoBehaviour
 {
     [Header("UI 설정")]
-    public Transform heartContainer;        // 하트들이 들어갈 부모 오브젝트
-    public GameObject heartPrefab;          // 하트 이미지 프리팹
-    public Sprite heartFull;                // 풀 하트 스프라이트
-    public Sprite heartEmpty;               // 빈 하트 스프라이트
+    public Transform heartContainer;
+    public GameObject heartPrefab;
+    public Sprite heartFull;
+    public Sprite heartEmpty;
 
-    [Header("참조")]
-    public PlayerHealth playerHealth;       // PlayerHealth 스크립트 참조
-
+    private PlayerHealth playerHealth;
     private List<Image> heartImages = new List<Image>();
+    private int lastKnownHP = -1;  // 마지막으로 알려진 HP (최적화용)
 
     void Start()
     {
-        // PlayerHealth가 할당되지 않았으면 자동으로 찾기
-        if (playerHealth == null)
-        {
-            playerHealth = FindFirstObjectByType<PlayerHealth>();
-        }
+        // PlayerHealth 자동 검색
+        playerHealth = FindFirstObjectByType<PlayerHealth>();
 
         if (playerHealth == null)
         {
@@ -36,8 +32,12 @@ public class PlayerHealthUI : MonoBehaviour
 
     void Update()
     {
-        // HP가 변경되었는지 매 프레임 체크
-        UpdateHearts();
+        // HP가 실제로 변경되었을 때만 업데이트 (최적화)
+        if (playerHealth != null && playerHealth.CurrentHP != lastKnownHP)
+        {
+            UpdateHearts();
+            lastKnownHP = playerHealth.CurrentHP;
+        }
     }
 
     /// <summary>
@@ -84,7 +84,7 @@ public class PlayerHealthUI : MonoBehaviour
 
         for (int i = 0; i < heartImages.Count; i++)
         {
-            if (i < playerHealth.currentHP)
+            if (i < playerHealth.CurrentHP)
             {
                 // 현재 HP 이하: 풀 하트
                 heartImages[i].sprite = heartFull;
@@ -94,8 +94,7 @@ public class PlayerHealthUI : MonoBehaviour
             {
                 // 현재 HP 초과: 빈 하트
                 heartImages[i].sprite = heartEmpty;
-                heartImages[i].enabled = true;  // 빈 하트도 보이게
-                // 완전히 숨기려면: heartImages[i].enabled = false;
+                heartImages[i].enabled = true;
             }
         }
     }

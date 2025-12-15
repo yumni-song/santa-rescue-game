@@ -92,13 +92,6 @@ public class ItemBombEft : ItemEffect
         bombScript.damage = damage;
         bombScript.explosionEffectPrefab = explosionEffectPrefab;
 
-        // 필드 아이템 회전 스크립트 제거 (있다면)
-        RotateItem rotateScript = bomb.GetComponent<RotateItem>();
-        if (rotateScript != null)
-        {
-            Destroy(rotateScript);
-        }
-
         // 포물선 투척을 위한 속도 계산
         Vector3 throwVelocity = CalculateThrowVelocity(throwDirection, throwAngle);
         rb.velocity = throwVelocity;
