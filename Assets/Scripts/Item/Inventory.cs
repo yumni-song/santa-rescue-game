@@ -9,9 +9,19 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
-            Destroy(gameObject);
+        {
+            // 이미 인스턴스가 존재하면 새로 생성된 오브젝트는 파괴
+            if (instance != this)
+            {
+                Destroy(gameObject);
+                Debug.LogWarning("중복 Inventory 인스턴스 제거됨.");
+            }
+        }
     }
 
     public delegate void OnChangeItem();

@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Endings/HappyEnd.unity
     guid: 34702dbdd1eb22e4e9c802609ce4a98b
+  - enabled: 1
+    path: Assets/Scenes/item_test.unity
+    guid: fadf66d8723866a4ba7de255ee53fcef
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

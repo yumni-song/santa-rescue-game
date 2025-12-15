@@ -43,13 +43,16 @@ public class BossEnemyBase : EnemyBase
         if (!isAggro) return; // 어그로 안 끌렸으면 아무것도 안 함
 
         LookAtPlayer();
+        UpdateShieldStatus();
 
-        if (chasePlayer)
+        // 이동 가능할 때만 추격
+        if (chasePlayer && CanMove())
         {
             ChasePlayer(dist);
         }
 
-        if (dist <= attackRange)
+        // 공격 가능할 때만 공격
+        if (dist <= attackRange && CanAttack())
         {
             TryAttack();
         }

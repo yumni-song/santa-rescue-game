@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class SnowballProjectile : MonoBehaviour
 {
-    [Header("눈덩이 설정")]
-    public int damage = 1;              // 데미지
-    public float lifeTime = 5f;         // 최대 생존 시간
-    public GameObject hitEffectPrefab;  // 충돌 이펙트 (선택)
+    // 눈덩이 설정
+    public int damage = 1;
+    public float lifeTime = 5f;
+    public GameObject hitEffectPrefab;
 
-    [Header("충돌 무시 설정")]
-    public float ignorePlayerTime = 0.2f; // 생성 후 이 시간동안 플레이어와 충돌 무시
+    // 효과음 설정
+    public AudioClip hitSound;
+    [Range(0f, 1f)]
+    public float hitSoundVolume = 0.7f;
+
+    // 충돌 무시 설정
+    public float ignorePlayerTime = 0.2f;
 
     private bool hasHit = false;
     private float spawnTime;
@@ -18,11 +23,7 @@ public class SnowballProjectile : MonoBehaviour
     void Start()
     {
         spawnTime = Time.time;
-
-        // 일정 시간 후 자동 삭제
         Destroy(gameObject, lifeTime);
-
-        // 플레이어와 물리적 충돌 무시
         IgnorePlayerCollision();
     }
 
@@ -33,7 +34,6 @@ public class SnowballProjectile : MonoBehaviour
         {
             Collider snowballCollider = GetComponent<Collider>();
             Collider[] playerColliders = player.GetComponentsInChildren<Collider>();
-
             foreach (Collider playerCol in playerColliders)
             {
                 if (snowballCollider != null && playerCol != null)
@@ -48,45 +48,54 @@ public class SnowballProjectile : MonoBehaviour
     {
         if (hasHit) return;
 
-        // 생성 직후 짧은 시간동안은 플레이어와 충돌 무시 (추가 안전장치)
+        // 생성 직후 플레이어와 충돌 무시
         if (collision.gameObject.CompareTag("Player"))
         {
             if (Time.time - spawnTime < ignorePlayerTime)
             {
-                Debug.Log("생성 직후 - 플레이어와 충돌 무시");
                 return;
             }
         }
 
         hasHit = true;
-
         Debug.Log($"눈덩이가 {collision.gameObject.name}에 충돌!");
+
+        // 충돌 위치 계산 (정확한 충돌 지점)
+        Vector3 hitPosition = collision.contacts[0].point;
+
+        // 효과음 재생
+        PlayHitSound(hitPosition);
 
         // 적에게 데미지
         EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
-            Debug.Log($" {collision.gameObject.name}에게 {damage} 데미지!");
-        }
-        else
-        {
-            Debug.Log($" {collision.gameObject.name}에는 EnemyBase가 없습니다");
+            Debug.Log($"{collision.gameObject.name}에게 {damage} 데미지!");
         }
 
         // 충돌 이펙트 생성
         if (hitEffectPrefab != null)
         {
-            GameObject effect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            GameObject effect = Instantiate(hitEffectPrefab, hitPosition, Quaternion.identity);
             Destroy(effect, 2f);
-            Debug.Log("충돌 이펙트 생성!");
-        }
-        else
-        {
-            Debug.Log("hitEffectPrefab이 설정되지 않았습니다");
         }
 
         // 눈덩이 파괴
         Destroy(gameObject);
+    }
+
+    // 효과음 재생
+    void PlayHitSound(Vector3 position)
+    {
+        if (hitSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hitSound, position, hitSoundVolume);
+            Debug.Log("충돌 효과음 재생!");
+        }
+        else
+        {
+            Debug.LogWarning("hitSound가 설정되지 않았습니다!");
+        }
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2154683969899793953}
   - component: {fileID: 7648243276271922946}
   - component: {fileID: 9184211668355496979}
-  - component: {fileID: 8653771141974450751}
   m_Layer: 0
   m_Name: FieldItem_Key
   m_TagString: FieldItem
@@ -73,21 +72,17 @@ MonoBehaviour:
     itemName: 
     itemIcon: {fileID: 21300000, guid: 2e4dc77b15686094c904a03edff8f2d8, type: 3}
     itemModel: {fileID: 4904201098223554599, guid: d8452f66a0985454295920a87b83af64, type: 3}
+    efts: []
   spawnedModel: {fileID: 4904201098223554599, guid: d8452f66a0985454295920a87b83af64, type: 3}
---- !u!114 &8653771141974450751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4649941218609584306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a338a972c7a844591ca7c389f9b64f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 50
-  rotateAxis: {x: 0, y: 1, z: 0}
+  itemEffectPrefab: {fileID: 0}
+  effectScale: 1.5
+  effectYOffset: 0
+  rotateItem: 1
+  rotationSpeed: 50
+  rotationAxis: {x: 0, y: 1, z: 0}
+  floatItem: 1
+  floatAmplitude: 0.3
+  floatSpeed: 2
 --- !u!1001 &3168572056123419467
 PrefabInstance:
   m_ObjectHideFlags: 0

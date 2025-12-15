@@ -6,19 +6,21 @@ TagManager:
   tags:
   - FieldItem
   - FxTemporaire
+  - Prison
+  - StartPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Water
+  - 
   - Water
   - UI
   - Interactable
   - SantaFollower
   - Enemy
   - EnemyProjectile
-  - 
-  - 
+  - Player
+  - PlayerProjectile
   - 
   - 
   - 

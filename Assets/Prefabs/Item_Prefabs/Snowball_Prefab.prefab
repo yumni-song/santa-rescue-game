@@ -151,4 +151,6 @@ MonoBehaviour:
   damage: 1
   lifeTime: 5
   hitEffectPrefab: {fileID: 4238282276193058725, guid: 61d5ff493f70f904c85d46db6dc5872d, type: 3}
+  hitSound: {fileID: 8300000, guid: 4a3895ad8d41b8043979431b37378224, type: 3}
+  hitSoundVolume: 0.7
   ignorePlayerTime: 0.2

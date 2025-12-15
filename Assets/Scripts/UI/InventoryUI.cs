@@ -15,27 +15,33 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inven = Inventory.instance;
+        StartCoroutine(InitializeInventoryUI());
+    }
 
-        if (inven == null)
+    IEnumerator InitializeInventoryUI()
+    {
+        // Inventory가 초기화될 때까지 대기
+        while (Inventory.instance == null)
         {
-            Debug.LogError("Inventory instance가 null입니다!");
-            return;
+            yield return null;
         }
 
+        inven = Inventory.instance;
         slots = slotHolder.GetComponentsInChildren<Slot>();
         Debug.Log($"찾은 슬롯 개수: {slots.Length}");
 
+        inven.onChangeItem -= RedrawSlotUI;
         inven.onChangeItem += RedrawSlotUI;
 
-        // 첫 번째 슬롯 선택
+        // 씬 로드 직후, 현재 인벤토리 데이터를 UI에 바로 반영
         if (slots.Length > 0)
         {
-            SelectSlot(0);
+            RedrawSlotUI();
         }
 
-        Debug.Log("InventoryUI 초기화 완료");
+        Debug.Log("InventoryUI 초기화 완료 및 UI 갱신됨");
     }
+
 
     // Update is called once per frame
     void Update()

@@ -11,7 +11,7 @@ public class Slot : MonoBehaviour
     public Image itemIcon;
 
     [Header("선택 표시")]
-    public GameObject selectionBorder; // Image → GameObject로 변경
+    public GameObject selectionBorder;
 
     private void Awake()
     {

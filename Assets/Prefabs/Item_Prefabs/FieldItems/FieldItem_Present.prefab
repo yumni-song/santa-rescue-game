@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1765737425541913278}
   - component: {fileID: 5587737346164406650}
   - component: {fileID: 8180333688232643201}
-  - component: {fileID: 9174854274317409315}
   m_Layer: 0
   m_Name: FieldItem_Present
   m_TagString: FieldItem
@@ -54,7 +53,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2, y: 1.2, z: 1.2}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!114 &8180333688232643201
 MonoBehaviour:
@@ -73,21 +72,17 @@ MonoBehaviour:
     itemName: 
     itemIcon: {fileID: 0}
     itemModel: {fileID: 5711346739794886412, guid: 025285af263241f4ab2199d1411ce3c7, type: 3}
+    efts: []
   spawnedModel: {fileID: 5711346739794886412, guid: 025285af263241f4ab2199d1411ce3c7, type: 3}
---- !u!114 &9174854274317409315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8263531729010001726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a338a972c7a844591ca7c389f9b64f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 50
-  rotateAxis: {x: 0, y: 1, z: 0}
+  itemEffectPrefab: {fileID: 0}
+  effectScale: 1.5
+  effectYOffset: 0
+  rotateItem: 1
+  rotationSpeed: 50
+  rotationAxis: {x: 0, y: 1, z: 0}
+  floatItem: 1
+  floatAmplitude: 0.3
+  floatSpeed: 2
 --- !u!1001 &5384449066210571312
 PrefabInstance:
   m_ObjectHideFlags: 0
