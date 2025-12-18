@@ -1,116 +1,68 @@
-### 깃허브 협업 설정 과정
+# 🎄 산타 구출 대작전 (Santa Rescue Operation)
+크리스마스를 되찾기 위한 3D 액션 어드벤처 Unity 게임 프로젝트
 
-00. 3d 게임 프로젝트(GameProject)를 유니티에서 생성
-01. game-project라는 원격 레포지토리 생성
-02. $ C:/Users/ippun/GameProject 폴더로 이동
-03. $ git init
-04. $ git remote add origin https://github.com/yumni-song/game-project
-05. Unity 에디터 설정Edit > Project Settings > Editor
-     Version Control: Visible Meta Files
-     Asset Serialization: Force Text
-     메타(.meta) 파일 생성 + 씬/프리팹을 YAML 텍스트로 저장해 병합 가능하게 함.
-06. $ git lfs install
-07. $ git lfs track "*.fbx" "*.psd" "*.wav" "*.mp3" "*.mp4" "*.tga" "*.exr" "*.zip"
-08. .gitignore, .gitattributes 파일 만들기
-09. $ git add .
-10. $ git commit -m "init: base Unity project setup"
-11. $ git branch -M main
-12. $ git push -u origin main
+### 🧩 게임 소개
+**산타 구출 대작전**은 할로윈 마을에 의해 감금된 산타와 루돌프를 구출해 크리스마스를 되찾는 것을 목표로 하는 3D 액션 어드벤처 게임이다. 플레이어는 제한 시간 내에 맵을 탐색하며 몬스터를 피해 열쇠를 획득하고, 산타와 루돌프를 구출해 목적지까지 안전하게 이동해야 한다.
 
-### 프로젝트 받기
-```bash
-git clone https://github.com/yumni-song/game-project
-cd game-project
-git lfs install
-git lfs pull   # (선택) 대용량 에셋 강제 가져오기
-```
+---
 
-### 유니티로 열기
- - Unity Hub → Add project from disk → game-project 폴더 선택 → 같은 버전으로 Open
- - (프로젝트에 이미 Visible Meta Files / Force Text가 저장돼 있어서 그대로 따라옵니다)
+### 🕹️ 게임 플레이
+- WASD 키를 이용한 플레이어 이동
+- Space 키를 이용한 점프, Shift 키를 이용한 달리기
+- 마우스 좌클릭을 이용한 아이템 사용, 우클릭을 이용한 공격
+- 제한 시간 기반 게임 진행
+- 열쇠 획득 → 감옥 해제 → NPC 구출 → 엔딩 분기 구조
 
-### 작업 루틴(브랜치 방식)
-```bash
-git pull                                # 시작 전 최신화
-git checkout -b feature/<작업이름>      # 개인 브랜치 생성
-# Unity에서 작업…
-git add .
-git commit -m "feat: <무엇을 했는지 요약>"
-git push -u origin feature/<작업이름>   # 원격에 올리기
-```
+---
 
-### 머지 후 로컬 정리
-```bash
-git switch main
-git pull
-git branch -d feature/<작업이름>
-git push origin --delete feature/<작업이름>
-```
+### 🛠️ 사용 기술
+- Unity 
+- C# (MonoBehaviour 기반 스크립트)
+- GitHub (팀 협업 및 버전 관리)
 
-### .gitignore
-```gitignore
-# === Unity 기본 무시 목록 ===
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Uu]serSettings/
-[Mm]emoryCaptures/
-[Oo]bj/
-[Bb]in/
-[.]*.swp
+---
 
-# === IDE 관련 ===
-.vscode/
-.idea/
-*.csproj
-*.unityproj
-*.sln
-*.suo
-*.tmp
-*.user
-*.userprefs
+### 📁 주요 구성
 
-# === OS 관련 ===
-.DS_Store
-Thumbs.db
+#### 🎮 Player 시스템
+- 플레이어 이동, 점프, 달리기, 중력 처리
+- 체력 및 상태 관리
+- 플레이어 입력 처리
 
-# === Crash Dumps ===
-sysinfo.txt
+#### ⏱️ 게임 진행 & 상태 관리
+- 제한 시간 타이머 시스템
+- 게임 시작 / 종료 상태 관리
+- 성공 / 실패 조건 판정 및 엔딩 분기 처리
 
-# === Rider / Visual Studio Cache ===
-*.pidb
-*.booproj
+#### 🧙 몬스터 & NPC 시스템
+- 일반 몬스터 AI 및 이동 로직
+- 보스 몬스터 패턴 처리
+- 산타 & 루돌프 추적 및 동행 시스템
 
-# === Package Cache ===
-Packages/com.unity.collab-proxy/
-Packages/com.unity.package-manager-ui/
+#### 🎲 아이템 & 상호작용
+- 열쇠 아이템 획득 로직 & 감옥 오브젝트 상호작용 & 충돌 기반 이벤트 트리거 처리
+- 폭탄 아이템 투척 로직 & 폭발 처리 로직
+- 선물 아이템으로 플레이어 HP표현, 체력 감소시 HP 선물 UI 깜빡임 효과
+- 십자가 아이템으로 방어 효과 구현
 
-# === 빌드 결과물 ===
-Build/
-Builds/
+#### 🎵 사운드 & 연출
+- 씬 전환 시 유지되는 BGM 관리
+- 효과음(SFX) 재생 시스템
+- 게임 분위기를 위한 연출 처리
 
-# === 반드시 추적해야 하는 폴더 ===
-!Assets/
-!ProjectSettings/
-!Packages/
-```
+#### 🌍 씬 & 구조 관리
+- Start / Tutorial / InGame / Ending 씬 구성
+- 씬 전환 로직 및 데이터 유지 처리
+- 테스트용 씬 분리 및 관리
 
-### gitattributes
-```gitattributes
-# Unity Large Binary Assets
-*.psd filter=lfs diff=lfs merge=lfs -text
-*.tga filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.fbx filter=lfs diff=lfs merge=lfs -text
-*.obj filter=lfs diff=lfs merge=lfs -text
-*.wav filter=lfs diff=lfs merge=lfs -text
-*.mp3 filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
-*.mov filter=lfs diff=lfs merge=lfs -text
-*.zip filter=lfs diff=lfs merge=lfs -text
-*.exr filter=lfs diff=lfs merge=lfs -text
-```
+#### 🧩 공통 유틸 & 협업 구조
+- 싱글톤 매니저 구조
+- 공통 상수 및 유틸리티 스크립트
+- GitHub 협업을 고려한 프리팹 구조
+
+---
+
+### 🚀 실행 방법
+1. 레포지토리의 `Build` 폴더 또는 릴리즈 페이지에서 압축 파일 다운로드  
+2. 압축 해제 후 exe 파일 실행  
+3. 게임 시작 ▶️
